@@ -1,0 +1,18 @@
+@import url("./styles/reset.css");
+@import url("./styles/variables.css");
+@import url("./styles/header.css");
+@import url("./styles/main.css");
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1442px;
+  margin: 0 auto;
+  font-family: var(--f1);
+  font-weight: normal;
+  line-height: normal;
+  font-display: swap;
+}

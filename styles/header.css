@@ -1,0 +1,136 @@
+.header {
+  width: 100%;
+  min-height: 92px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--black);
+  padding: 0 24px;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1110px;
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.header-menu-btn {
+  display: none;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 82px;
+}
+
+.header-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-nav-item {
+  cursor: pointer;
+}
+
+.item-options {
+  position: relative;
+}
+
+.item-options::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url(../assets/icons/nav-arrow.svg);
+  background-size: 100% 100%;
+}
+
+.header-logo {
+  width: 118px;
+  height: 50px;
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 16px;
+}
+
+.header-book {
+  display: none;
+}
+
+@media (max-width: 1123px) {
+  .header-nav {
+    gap: 33px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-menu-btn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .header-logo {
+    width: 94px;
+    height: 40px;
+  }
+
+  .header-nav-items {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    flex-direction: column;
+    background: var(--black);
+    border: 1px solid var(--white);
+    padding: 16px;
+  }
+
+  .header-phone {
+    display: none;
+  }
+
+  .header-book {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header-book-btn {
+    width: 120px;
+    height: 54px;
+    border: 1px solid var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .menu-visible {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    align-items: flex-start;
+  }
+}
