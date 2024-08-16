@@ -24,10 +24,17 @@ document.addEventListener("click", (e) => {
 const categoryBtns = document.querySelectorAll(".category-btn");
 const isMobile = window.innerWidth <= 1123;
 let isStart = false;
+let lastActiveCategory = categoryBtns[0]; // Start with the first category
 
 const ulElements = document.querySelectorAll("ul");
 if (isMobile) {
   ulElements.forEach((ul) => ul.classList.remove("active"));
+}
+
+// Initially set the background and image for the first category
+document.getElementById("category-image").style.visibility = "visible";
+if (!isMobile) {
+  ulElements[0].classList.add("active");
 }
 
 categoryBtns.forEach((btn) => {
@@ -66,6 +73,14 @@ function onCategoryClick(category) {
     // Closing only the current list
     closeSubsequentMenus(currentList, category);
     category.classList.remove("open");
+
+    // Reset to the initial state if no category is open
+    if (!document.querySelector(".category-btn.open")) {
+      if (!isMobile) {
+        lastActiveCategory.parentElement.classList.add("active");
+        document.getElementById("category-image").style.visibility = "visible";
+      }
+    }
   } else {
     // Close all subsequent lists
     closeSubsequentMenus(currentList, category);
@@ -102,7 +117,7 @@ function onCategoryClick(category) {
         listItem.classList.add("no-arrow");
         list.appendChild(listItem);
         listItem.addEventListener("click", () =>
-          alert(`Logic for "${sub.name || keys[0]}" !!!`)
+          alert(`Something for "${sub.name || keys[0]}" !!`)
         );
       }
     });
@@ -118,7 +133,7 @@ function closeSubsequentMenus(currentList, clickedCategory) {
 
   // Remove all ul elements that come after the current parent
   while (nextSibling) {
-    if (nextSibling.tagName === "UL") {
+    if (nextSibling.tagName === "ul") {
       nextSibling.remove();
     }
     nextSibling = nextSibling.nextElementSibling;
